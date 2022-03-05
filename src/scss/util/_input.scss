@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+input {
+  flex-grow: 2;
+  border: none;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid $color__chinese__silver;
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  @include responsive(small) {
+    width: 80%;
+  }
+}
+
+[type='radio'] {
+  opacity: 0;
+}
+
+[type='radio']:checked ~ label {
+  background: $color__light__crimson;
+  color: $color__white;
+}

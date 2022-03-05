@@ -1,0 +1,24 @@
+@use '../abstracts/' as *;
+.about {
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    margin-bottom: 0.625rem 0;
+  }
+
+  &-link {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      color: $color__white;
+      cursor: pointer;
+
+      &:hover {
+        color: $color__light__crimson;
+      }
+    }
+  }
+}

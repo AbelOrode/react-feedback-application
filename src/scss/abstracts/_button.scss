@@ -1,0 +1,35 @@
+@use '../abstracts/' as *;
+.btn {
+  color: $color__white;
+  border: 0;
+  border-radius: 8px;
+  color: $color__white;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+
+  &-primary {
+    background-color: $color__valhalla;
+  }
+
+  &-secondary {
+    background: $color__light__crimson;
+  }
+
+  &:hover {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background-color: $color__chinese__silver;
+    color: $color__dark__charcoal;
+    cursor: auto;
+
+    &:hover {
+      background-color: $color__chinese__silver;
+      color: $color__dark__charcoal;
+      cursor: auto;
+    }
+  }
+}

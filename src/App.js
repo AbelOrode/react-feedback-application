@@ -1,15 +1,25 @@
+import { useState } from 'react'
+import Header from './components/Header'
+
+import FeedbackData from './data/FeedbackData'
+import FeedBackList from './components/FeedBackList'
 const App = () => {
+  const [feedback, setFeedback] = useState(FeedbackData)
+
+  const deleteFeedback = (id) => {
+    if (window.confirm('Sure about deleting this record?')) {
+      setFeedback(
+        feedback.filter((item) => {
+          return item.id !== id
+        })
+      )
+    }
+  }
   return (
     <>
       <div className="container">
-        <div className="row p-15 mt-15">
-          <div className="col-6" id="one">
-            <h1>This is a functional component in a column 6 with id one</h1>
-          </div>
-          <div className="col-6" id="two">
-            <h1>This is a functional component in a column 6 with id two</h1>
-          </div>
-        </div>
+        <Header />
+        <FeedBackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>
     </>
   )

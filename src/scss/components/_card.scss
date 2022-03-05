@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+.card {
+  background-color: $color__white;
+  color: $color__dark__charcoal;
+  border-radius: 15px;
+  padding: 40px 50px;
+  margin: 20px 0;
+  position: relative;
+
+  &.reverse {
+    background-color: $color__alpha_four;
+    color: $color__white;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+  }
+}

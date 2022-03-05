@@ -2,6 +2,22 @@
 
 @use 'scss/abstracts/variable';
 
+@use 'scss/abstracts/button';
+
 @use 'scss/layout/layout';
 
 @use 'scss/util/util';
+
+@use 'scss/util/input';
+
+@use 'scss/components/card';
+
+@use 'scss/components/feedback-stats';
+
+@use 'scss/components/header';
+
+@use 'scss/components/num-display';
+
+@use 'scss/components/rating';
+
+@use 'scss/components/about';

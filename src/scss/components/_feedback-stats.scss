@@ -1,0 +1,7 @@
+@use '../abstracts/' as *;
+.feedback-stats {
+  color: $color__white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
