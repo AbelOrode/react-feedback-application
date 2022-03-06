@@ -1,5 +1,5 @@
 import { FaTimes } from 'react-icons/fa'
-import Card from '../shared/Card'
+import Card from '../components/shared/Card'
 
 const FeedBackItem = ({ item, handleDelete }) => {
   return (

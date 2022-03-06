@@ -7,7 +7,7 @@ const FeedbackStats = ({ feedback }) => {
   totalRatings = totalRatings.toFixed(1).replace(/[.,]0$/, '')
   return (
     <div className="feedback-stats">
-      <h4>{FeedbackStats.length} Reviews</h4>
+      <h4>{feedback.length} Reviews</h4>
       <h4>Average Rating: {isNaN(totalRatings) ? 0 : totalRatings}</h4>
     </div>
   )

@@ -7,6 +7,14 @@
   margin: 20px 0;
   position: relative;
 
+  @include responsive(medium) {
+    width: 100%;
+  }
+
+  @include responsive(small) {
+    width: 100%;
+  }
+
   &.reverse {
     background-color: $color__alpha_four;
     color: $color__white;
