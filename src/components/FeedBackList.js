@@ -1,7 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import FeedBackItem from './FeedBackItem'
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedBackList = ({ feedback, handleDelete }) => {
+const FeedBackList = () => {
+  const { feedback } = useContext(FeedbackContext)
   return (
     <div className="feedback-list">
       <AnimatePresence>
@@ -12,11 +15,7 @@ const FeedBackList = ({ feedback, handleDelete }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <FeedBackItem
-              key={item.id}
-              item={item}
-              handleDelete={handleDelete}
-            ></FeedBackItem>
+            <FeedBackItem key={item.id} item={item}></FeedBackItem>
           </motion.div>
         ))}
       </AnimatePresence>

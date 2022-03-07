@@ -1,19 +1,30 @@
-import { v4 as uuidv4 } from 'uuid'
-import { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import RatingSelect from './RatingSelect'
 import Card from './shared/Card'
 import Button from './shared/Button'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackForm = ({ handleAdd }) => {
+const FeedbackForm = () => {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [message, setMessage] = useState('')
 
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext)
+
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      setBtnDisabled(false)
+      setText(feedbackEdit.item.text)
+      setRating(feedbackEdit.item.rating)
+    }
+  }, [feedbackEdit]) // This allows the component to be re-rendered each time an event is fired.In our case the edit on click button
+
   const handleTextChange = (e) => {
     if (text === '') {
-      setBtnDisabled(true)
       setMessage(null)
+      setBtnDisabled(true)
     } else if (text !== '' && text.trim().length <= 10) {
       setMessage('Text must be at least 10 characters')
       setBtnDisabled(true)
@@ -32,7 +43,12 @@ const FeedbackForm = ({ handleAdd }) => {
         text,
         rating,
       }
-      handleAdd(newFeedback)
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback)
+      } else {
+        addFeedback(newFeedback)
+      }
+
       setText('')
     }
   }
